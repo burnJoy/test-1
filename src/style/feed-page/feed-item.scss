@@ -1,0 +1,61 @@
+.feed-item {
+    border: 1px solid $c-border;
+    padding: 10px 0;
+    border-radius: 4px;
+
+    &__wrapper {
+    }
+
+    &__person {
+        margin-right: 30px;
+        float: left;
+        width: 110px;
+        padding-left: 10px;
+    }
+
+    &__avatar {
+        max-width: 100%;
+    }
+
+    &__message {
+        float: right;
+        width: 658px;
+        line-height: 1.4;
+        padding-right: 10px;
+    }
+
+    &__comments {
+        padding-left: 130px;
+        margin-top: 20px;
+        border-top: 1px solid $c-border;
+        padding-top: 20px;
+    }
+
+    &__feed-comment {
+        margin-bottom: 20px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media (max-width: $b-lg) {
+    .feed-item {
+    }
+}
+
+@media (max-width: $b-md) {
+    .feed-item {
+    }
+}
+
+@media (max-width: $b-sm) {
+    .feed-item {
+    }
+}
+
+@media (max-width: $b-xs) {
+    .feed-item {
+    }
+}

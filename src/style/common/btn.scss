@@ -1,0 +1,50 @@
+.btn {
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    color: #fff;
+    background: $c-main;
+    border-radius: 32px;
+    padding: 10px 40px;
+    display: inline-block;
+    border: none;
+    outline: none !important;
+
+    &:hover {
+        background: lighten($c-main, 10%);
+        text-decoration: none;
+    }
+
+    &:focus {
+        box-shadow: 0 0 0 2px #000;
+    }
+
+    &:disabled {
+        background: #cdcdcd;
+    }
+}
+
+.btn--loading {
+    &::after {
+        content: '';
+        position: absolute;
+        animation: 2s linear infinite running loading;
+    }
+}
+
+@keyframes loading {
+    0% {
+        content: ".";
+    }
+
+    50% {
+        content: "..";
+    }
+
+    100% {
+        content: "...";
+    }
+}

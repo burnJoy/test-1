@@ -1,0 +1,53 @@
+.themes-changer {
+    &__slide {
+        user-select: none;
+        cursor: pointer;
+        align-items: center;
+        font-size: 15px;
+        line-height: 24px;
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    &__input {
+        display: none;
+    }
+
+    &__input:checked + span {
+        background: #ffcf01;
+
+        &::before {
+            background: $c-dark-bg;
+            left: 100%;
+            margin-left: -28px;
+        }
+    }
+
+    &__point {
+        display: block;
+        margin-right: 12px;
+        width: 56px;
+        height: 30px;
+        background: $c-dark-bg;
+        border-radius: 999px;
+        position: relative;
+        transition: background-color 0.2s ease;
+
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: #fff;
+            top: 50%;
+            left: -1px;
+            margin-top: -12px;
+            margin-left: 4px;
+            transition-property: left, background-color, margin-left;
+            transition-duration: 0.2s;
+            transition-timing-function: ease;
+        }
+    }
+}

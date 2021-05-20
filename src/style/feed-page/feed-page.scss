@@ -1,0 +1,33 @@
+.feed-page {
+    &__list {
+        margin-top: 30px;
+    }
+
+    &__feed-item {
+        margin-bottom: 30px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media (max-width: $b-lg) {
+    .feed-page {
+    }
+}
+
+@media (max-width: $b-md) {
+    .feed-page {
+    }
+}
+
+@media (max-width: $b-sm) {
+    .feed-page {
+    }
+}
+
+@media (max-width: $b-xs) {
+    .feed-page {
+    }
+}
