@@ -66,16 +66,6 @@ export default new Vuex.Store({
       });
     },
 
-    // updateLocalStorege({ state }) {
-    //   new Promise((resolve) => {
-    //     setTimeout(() => {
-    //       resolve(state);
-    //     }, 1000);
-    //   }).then((response) => {
-    //     localStorage.setItem("state", JSON.stringify(response));
-    //   });
-    // },
-
     getLocalStoregaState({ commit }) {
       commit("SET_LOADER", true);
       // имитация запроса на сервер
