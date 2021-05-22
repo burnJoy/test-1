@@ -1,22 +1,20 @@
 .container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
 }
 
 @media (max-width: $b-lg) {
   .container {
+    max-width: 960px;
   }
 }
 
 @media (max-width: $b-md) {
   .container {
-  }
-}
-
-@media (max-width: $b-sm) {
-  .container {
-  }
-}
-
-@media (max-width: $b-xs) {
-  .container {
+    max-width: 740px;
+    padding-left: 8px;
+    padding-right: 8px;
   }
 }

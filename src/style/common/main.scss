@@ -1,42 +1,67 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
 body {
-    height: 100%;
+  height: 100%;
 }
 
 .main {
-    font-family: sans-serif;
-    height: 100%;
-    overflow-y: auto;
+  font-family: sans-serif;
+  height: 100%;
+  overflow-y: auto;
+  background: #fff;
+  transition-property: color, background-color;
+  transition-duration: 0.5s;
+  transition-timing-function: ease;
 
-    &__container {
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
-        padding-top: 20px;
-        padding-bottom: 40px;
-    }
+  &__container {
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
 
-    &__wrapper {
-        margin-top: 20px;
-    }
+  &__wrapper {
+    margin-top: 20px;
+  }
 
+  &__feed-page {
+    width: 800px;
+    float: left;
+  }
+
+  &__aside {
+    width: 360px;
+    float: right;
+  }
+
+  // dark-side
+  &--dark {
+    color: $c-dark-text;
+    background: $c-dark-bg;
+  }
+}
+
+@media (max-width: $b-lg) {
+  .main {
     &__feed-page {
-        width: 800px;
-        float: left;
+      width: 600px;
     }
 
     &__aside {
-        width: 360px;
-        float: right;
+      width: 320px;
+    }
+  }
+}
+
+@media (max-width: $b-md) {
+  .main {
+    &__feed-page {
+      width: 100%;
     }
 
-    // dark-side
-    &--dark {
-        color: $c-dark-text;
-        background: $c-dark-bg;
+    &__aside {
+      display: none;
     }
+  }
 }

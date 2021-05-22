@@ -4,7 +4,14 @@ import store from "./store";
 
 import "./style/style.scss";
 
-Vue.config.productionTip = false;
+let uuid = 0;
+
+Vue.mixin({
+  beforeCreate() {
+    this.uuid = uuid.toString();
+    uuid += 1;
+  },
+});
 
 new Vue({
   store,

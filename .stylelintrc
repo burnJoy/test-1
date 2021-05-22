@@ -2,7 +2,7 @@
     "extends": "stylelint-config-standard",
     "rules": {
         "at-rule-no-unknown": null,
-        "indentation": 4,
+        "indentation": 2,
         "max-nesting-depth": 3,
         "no-descending-specificity": null
     }
