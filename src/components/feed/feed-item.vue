@@ -1,16 +1,17 @@
 <template>
   <article class="feed-page__feed-item feed-item">
     <div class="feed-item__wrapper clearfix">
-      <div class="feed-item__person" :id="`unic-id-${uuid}`">
+      <div class="feed-item__person">
         <img
-          width="99"
-          height="99"
+          width="100"
+          height="100"
           class="feed-item__avatar"
           alt="name"
           :src="item.author.avatar"
+          :id="`unic-id-${uuid}`"
         />
+        <span class="feed-item__name">{{ item.author.name }}</span>
       </div>
-      <b-tooltip :target="`unic-id-${uuid}`" :title="item.author.name" />
       <div class="feed-item__message">
         <div class="feed-item__img-wrap">
           <img
@@ -36,15 +37,12 @@
 </template>
 
 <script>
-import { BTooltip } from "bootstrap-vue";
-
 import FeedComment from "./feed-comment";
 
 export default {
   name: "feed-item",
   components: {
     FeedComment,
-    BTooltip,
   },
 
   props: {

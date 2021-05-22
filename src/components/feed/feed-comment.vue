@@ -9,23 +9,17 @@
         class="feed-comment__avatar"
         :id="`unic-id-${uuid}`"
       />
+      <span class="feed-comment__name">{{ comment.author.name }}</span>
     </div>
     <div class="feed-comment__message">
       {{ comment.message }}
     </div>
-    <b-tooltip :target="`unic-id-${uuid}`" :title="comment.author.name" />
   </div>
 </template>
 
 <script>
-import { BTooltip } from "bootstrap-vue";
-
 export default {
   name: "feed-comment",
-
-  components: {
-    BTooltip,
-  },
 
   props: {
     comment: {
