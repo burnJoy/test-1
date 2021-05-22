@@ -6,24 +6,26 @@
   &__person {
     margin-right: 30px;
     float: left;
-    width: 110px;
-    padding-left: 10px;
+    width: 100px;
+    margin-left: 10px;
   }
 
   &__avatar {
     max-width: 100%;
+    width: 100%;
+    height: auto;
   }
 
   &__message {
     float: right;
-    width: 658px;
+    width: 642px;
     line-height: 1.4;
     padding-right: 10px;
     overflow: hidden;
   }
 
   &__comments {
-    padding-left: 150px;
+    padding-left: 140px;
     margin-top: 20px;
     border-top: 1px solid $c-border;
     padding-top: 20px;
@@ -91,6 +93,7 @@
     &__person {
       width: 80px;
       height: 80px;
+      margin-right: 16px;
     }
 
     &__avatar {

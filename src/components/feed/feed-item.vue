@@ -1,16 +1,16 @@
 <template>
   <article class="feed-page__feed-item feed-item">
-    <div class="feed-item__wrapper clearfix" >
-      <div class="feed-item__person">
+    <div class="feed-item__wrapper clearfix">
+      <div class="feed-item__person" :id="`unic-id-${uuid}`">
         <img
           width="99"
           height="99"
           class="feed-item__avatar"
           alt="name"
           :src="item.author.avatar"
-          :id="`unic-id-${uuid}`"
         />
       </div>
+      <b-tooltip :target="`unic-id-${uuid}`" :title="item.author.name" />
       <div class="feed-item__message">
         <div class="feed-item__img-wrap">
           <img
@@ -32,8 +32,6 @@
         class="feed-item__feed-comment"
       />
     </div>
-
-    <b-tooltip :target="`unic-id-${uuid}`" :title="item.author.name"/>
   </article>
 </template>
 
@@ -46,7 +44,7 @@ export default {
   name: "feed-item",
   components: {
     FeedComment,
-    BTooltip
+    BTooltip,
   },
 
   props: {

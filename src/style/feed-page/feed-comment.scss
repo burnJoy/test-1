@@ -11,7 +11,7 @@
 
   &__message {
     float: right;
-    width: 548px;
+    width: 542px;
     line-height: 1.4;
     padding-right: 10px;
   }
@@ -19,8 +19,12 @@
 
 @media (max-width: $b-lg) {
   .feed-comment {
+    &__person {
+      margin-right: 20px;
+    }
+
     &__message {
-      width: 348px;
+      width: 368px;
     }
   }
 }
