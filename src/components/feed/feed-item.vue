@@ -8,7 +8,6 @@
           class="feed-item__avatar"
           alt="name"
           :src="item.author.avatar"
-          :id="`unic-id-${uuid}`"
         />
         <span class="feed-item__name">{{ item.author.name }}</span>
       </div>
@@ -21,13 +20,13 @@
             alt="some IMG"
           />
         </div>
-        {{ clearMessageFromImg }}
+        {{ clearedMessageFromImg }}
         <div class="feed-item__date">{{ item.date }}</div>
       </div>
     </div>
-    <div v-if="commentsLength()" class="feed-item__comments">
+    <div v-if="commentsLength" class="feed-item__comments">
       <feed-comment
-        v-for="comment in item.comments.slice(-3)"
+        v-for="comment in commentsList"
         :comment="comment"
         :key="comment.id"
         class="feed-item__feed-comment"
@@ -53,19 +52,20 @@ export default {
   },
 
   computed: {
-    clearMessageFromImg() {
+    clearedMessageFromImg() {
       return this.item.message.replace(/(https?:\/\/.*\.(?:png|jpg))/i, "");
     },
 
     getImg() {
       return this.item.message.match(/(https?:\/\/.*\.(?:png|jpg))/i)?.[0];
     },
-  },
 
-  methods: {
-    // IE 10 не перестает удивлять
     commentsLength() {
       return this.item.comments?.length;
+    },
+
+    commentsList() {
+      return this.item.comments.slice(-3);
     },
   },
 };

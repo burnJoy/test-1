@@ -35,15 +35,13 @@ export default {
   },
 
   methods: {
-    ...mapActions(["createMessage", "creteComment"]),
+    ...mapActions(["createMessage", "createComment"]),
 
     onSubmit() {
+      if (this.isLoading) return;
       this.isLoading = true;
-      // генерируем объект сообщения
 
-      // рандомная генерация плоха, но тут подойдет
       const id = Math.floor(Math.random() * 1000000);
-
       const item = {
         id,
         date: getDate(),
@@ -54,9 +52,8 @@ export default {
 
       this.createMessage(item)
         .then(() => {
-          // нужно проверить ответ от сервера status === 'ok'
           this.message = "";
-          this.$refs['textarea'].blur();
+          this.$refs["textarea"].blur();
           this.setCommentGenerator(item.id);
         })
         .finally(() => {
@@ -66,7 +63,7 @@ export default {
 
     // фукнция для добавления комметариев раз в 5-30 секунд.
     setCommentGenerator(messageId) {
-      const innerAdd = this.creteComment;
+      const innerAdd = this.createComment;
       Promise.resolve().then(function resolver() {
         return new Promise((resolve) => {
           const random = 5 + Math.floor(Math.random() * 26);
@@ -75,7 +72,6 @@ export default {
           }, random * 1000);
         })
           .then(() => {
-            // рандомная генерация плоха, но тут подойдет
             const id = Math.floor(Math.random() * 1000000);
             const comment = {
               id,
@@ -87,8 +83,6 @@ export default {
           .then(resolver);
       });
     },
-
-    // генерация рандомного комметария
   },
 };
 </script>

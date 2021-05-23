@@ -5,7 +5,6 @@ const apiLocalStorage = {
         resolve(localStorage.getItem("state"));
       }, 1000);
     }).catch((error) => {
-      // обработаем ошибку с сетью
       console.log("api", error);
     });
   },
@@ -28,7 +27,6 @@ const apiLocalStorage = {
         localStorage.setItem("state", JSON.stringify(state));
       })
       .catch((error) => {
-        // обработаем ошибку с сетью
         console.log("api", error);
       });
   },
@@ -43,12 +41,10 @@ const apiLocalStorage = {
         const stateJson = localStorage.getItem("state");
         const state = stateJson ? JSON.parse(stateJson) : {};
         const message = state.messages.find((item) => item.id === messageId);
-        // добавляем в массив или созадем и добавляем
         message.comments = [...(message.comments || []), comment];
         localStorage.setItem("state", JSON.stringify(state));
       })
       .catch((error) => {
-        // обработаем ошибку с сетью
         console.log("api", error);
       });
   },

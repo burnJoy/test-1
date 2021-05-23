@@ -5,7 +5,7 @@ import apiLocalStorage from "@/api.js";
 
 Vue.use(Vuex);
 
-// Возьмем юзерские сетинги напрямую из localStorage чтобы тема грузилась сразу та что нужно
+// Возьмем юзерские сетинги напрямую из localStorage чтобы тема грузилась сразу
 const isDark = localStorage.getItem("state")
   ? JSON.parse(localStorage.getItem("state")).isDark
   : false;
@@ -28,7 +28,6 @@ export default new Vuex.Store({
 
     ADD_MESSAGE_COMMENT(state, { messageId, comment }) {
       const message = state.messages.find((item) => item.id === messageId);
-      // добавляем в массив или созадем и добавляем
       message.comments = [...(message.comments || []), comment];
     },
 
@@ -37,7 +36,6 @@ export default new Vuex.Store({
     },
 
     SET_STATE(state, localStorageJson) {
-      // записываем в тор по каждому ключу
       if (localStorageJson) {
         const localStorage = JSON.parse(localStorageJson);
         Object.entries(localStorage).forEach(([key, value]) => {
@@ -49,18 +47,17 @@ export default new Vuex.Store({
   actions: {
     changeTheme({ commit, state }, isDark) {
       commit("SET_THEME", isDark);
-      // меняем напрмую потому что это просто персонализация
+      // меняем напрямую потому что это просто персонализация
       localStorage.setItem("state", JSON.stringify({ ...state, isDark }));
     },
 
     createMessage({ commit }, payload) {
-      // идем по апи, если успех добавляем в стейт
       return apiLocalStorage.addMessage(payload).then(() => {
         commit("ADD_MESSAGE", payload);
       });
     },
 
-    creteComment({ commit }, payload) {
+    createComment({ commit }, payload) {
       return apiLocalStorage.addComment(payload).then(() => {
         commit("ADD_MESSAGE_COMMENT", payload);
       });
@@ -68,7 +65,6 @@ export default new Vuex.Store({
 
     getLocalStoregaState({ commit }) {
       commit("SET_LOADER", true);
-      // имитация запроса на сервер
       apiLocalStorage
         .getState()
         .then((response) => {
@@ -89,5 +85,4 @@ export default new Vuex.Store({
         .splice(0, 3);
     },
   },
-  modules: {},
 });

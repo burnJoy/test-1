@@ -7,7 +7,6 @@
         width="70"
         height="70"
         class="feed-comment__avatar"
-        :id="`unic-id-${uuid}`"
       />
       <span class="feed-comment__name">{{ comment.author.name }}</span>
     </div>
